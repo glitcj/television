@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bojvd7col3t4k"]
+
+[ext_resource type="Texture2D" uid="uid://dj5vnphrdcq2h" path="res://games/gol/gameoflife.jpg" id="1_1rj1s"]
+[ext_resource type="Script" path="res://games/gol/GameOfLife.gd" id="1_wr0c7"]
+
+[node name="GameOfLife" type="TextureRect"]
+texture_filter = 1
+offset_right = 512.0
+offset_bottom = 512.0
+texture = ExtResource("1_1rj1s")
+stretch_mode = 4
+script = ExtResource("1_wr0c7")
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(216, 192)
+scale = Vector2(-227.317, -92.008)
+zoom = Vector2(2.7, 2.7)

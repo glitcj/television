@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwsxga1xwl7q6"]
+
+[ext_resource type="Script" path="res://source/console/console.gd" id="1_s8kit"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3uw04"]
+font_size = 12
+
+[node name="ConsoleNode" type="Node2D"]
+z_index = 10
+script = ExtResource("1_s8kit")
+
+[node name="Console" type="Label" parent="."]
+z_index = 999
+offset_left = -248.0
+offset_top = -216.0
+offset_right = -173.0
+offset_bottom = -193.0
+text = "Console:"
+label_settings = SubResource("LabelSettings_3uw04")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+enabled = false
+zoom = Vector2(2, 2)

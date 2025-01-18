@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://btvldqe635bgw"]
+
+[ext_resource type="Script" path="res://games/quiz/nodes/stage/Camera2D.gd" id="1_fe6ap"]
+
+[node name="GlobalScene" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+z_index = 1000
+ignore_rotation = false
+zoom = Vector2(2, 2)
+script = ExtResource("1_fe6ap")
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="XROrigin3D" type="XROrigin3D" parent="Node3D"]
+
+[node name="XRCamera3D" type="XRCamera3D" parent="Node3D/XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.98922, 0, 0)

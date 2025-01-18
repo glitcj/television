@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbl1koukbivju"]
+
+[ext_resource type="Script" path="res://games/tv/loading/loading.gd" id="1_2b44j"]
+[ext_resource type="Texture2D" uid="uid://chxs0h57g6ygr" path="res://assets/images/pallet.png" id="2_qf1ob"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_8p0cb"]
+
+[node name="Loading" type="Node2D"]
+script = ExtResource("1_2b44j")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+enabled = false
+zoom = Vector2(2, 2)
+
+[node name="BackgroundNode" type="Node2D" parent="."]
+z_index = -10
+scale = Vector2(580, 580)
+
+[node name="Sprite2D" type="Sprite2D" parent="BackgroundNode"]
+modulate = Color(0, 0.0352941, 0.12549, 1)
+texture = SubResource("CanvasTexture_8p0cb")
+
+[node name="Pallet" type="Sprite2D" parent="."]
+position = Vector2(0, -128)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_qf1ob")

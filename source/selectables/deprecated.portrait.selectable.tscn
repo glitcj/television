@@ -1,0 +1,109 @@
+[gd_scene load_steps=7 format=3 uid="uid://c5savhl7j51xl"]
+
+[sub_resource type="GDScript" id="GDScript_jh1qs"]
+script/source = "extends Node2D
+class_name DeprecatedSelectable
+
+
+@onready var state := \"default\"
+@onready var displayed_label := \"default\" 
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	if state == \"hovering\":
+		$AnimationPlayer.play(\"hovering\")
+	if state == \"default\":
+		$AnimationPlayer.play(\"default\")
+		
+func set_label(s):
+	$Label.text = s
+	
+"
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_q615b"]
+
+[sub_resource type="Animation" id="Animation_lqkyf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_c0r6e"]
+resource_name = "default"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_yny0u"]
+resource_name = "hovering"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 1, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3u85f"]
+_data = {
+"RESET": SubResource("Animation_lqkyf"),
+"default": SubResource("Animation_c0r6e"),
+"hovering": SubResource("Animation_yny0u")
+}
+
+[node name="Selectable" type="Node2D"]
+z_index = 100
+z_as_relative = false
+scale = Vector2(30, 30)
+script = SubResource("GDScript_jh1qs")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 100
+z_as_relative = false
+texture = SubResource("CanvasTexture_q615b")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_3u85f")
+}
+
+[node name="Label" type="Label" parent="."]
+offset_left = 0.633333
+offset_top = -1.0
+offset_right = 57.6333
+offset_bottom = 22.0
+scale = Vector2(0.0745026, 0.0711127)
+text = "Default"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+z_index = 100
+enabled = false
+zoom = Vector2(2, 2)

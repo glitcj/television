@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cendbvgn8je7w"]
+
+[ext_resource type="Script" path="res://games/grid/pointer.gd" id="1_83nlh"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_chyrk"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_83nlh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 1, 1)
+scale = Vector2(8, 8)
+texture = SubResource("CanvasTexture_chyrk")

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2ly7xvxj6ecq"]
+
+[ext_resource type="Script" path="res://source/portrait/portrait.gd" id="1_txyxa"]
+[ext_resource type="PackedScene" uid="uid://dlu65bbdlp8r3" path="res://source/portrait/pallet.template.tscn" id="2_aq0wh"]
+
+[node name="Portrait" type="Node2D"]
+z_index = 20
+script = ExtResource("1_txyxa")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+enabled = false
+zoom = Vector2(2, 2)
+
+[node name="Pallet" parent="." instance=ExtResource("2_aq0wh")]

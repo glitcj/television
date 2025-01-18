@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjnw54odrjsjf"]
+
+[ext_resource type="Script" path="res://games/quiz/nodes/title/node.title.gd" id="1_t5yap"]
+[ext_resource type="Texture2D" uid="uid://djw14w458cv34" path="res://assets/quiz/sprites/stage/title_2.jpg" id="2_7ns8l"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_o3l30"]
+
+[node name="Title" type="Node2D"]
+script = ExtResource("1_t5yap")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+z_index = 100
+zoom = Vector2(2, 2)
+
+[node name="Background" type="Sprite2D" parent="."]
+modulate = Color(0.0941176, 0.0941176, 0.282353, 1)
+scale = Vector2(600, 600)
+texture = SubResource("CanvasTexture_o3l30")
+
+[node name="Title" type="Sprite2D" parent="."]
+position = Vector2(0, -80)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_7ns8l")
+
+[node name="Selectable" type="Node2D" parent="."]

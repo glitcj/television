@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ca01lj6dtlixy"
+path="res://.godot/imported/Ludum Dare 32 - Track 2.wav-e6679f97545cd35b8e7b19366efc015d.sample"
+
+[deps]
+
+source_file="res://assets/itch.io/Abstraction - Ludum Dare 32 Loops/Ludum Dare 32 - Track 2.wav"
+dest_files=["res://.godot/imported/Ludum Dare 32 - Track 2.wav-e6679f97545cd35b8e7b19366efc015d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

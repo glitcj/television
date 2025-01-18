@@ -1,0 +1,88 @@
+[gd_scene load_steps=7 format=3 uid="uid://df2yqssb0g2xf"]
+
+[ext_resource type="Script" path="res://source/selectables/portrait.selectable.template.gd" id="1_fjxjb"]
+
+[sub_resource type="Animation" id="Animation_lqkyf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_c0r6e"]
+resource_name = "default"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_yny0u"]
+resource_name = "hovering"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 1, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3u85f"]
+_data = {
+"RESET": SubResource("Animation_lqkyf"),
+"default": SubResource("Animation_c0r6e"),
+"hovering": SubResource("Animation_yny0u")
+}
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_q615b"]
+
+[node name="Pallet" type="Node2D"]
+z_index = 100
+z_as_relative = false
+script = ExtResource("1_fjxjb")
+
+[node name="AnimationPlayerA" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_3u85f")
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+z_index = 100
+enabled = false
+zoom = Vector2(2, 2)
+
+[node name="GFX" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="GFX"]
+z_index = 100
+z_as_relative = false
+texture = SubResource("CanvasTexture_q615b")
+
+[node name="Label" type="Label" parent="GFX"]
+offset_left = 0.633333
+offset_top = -1.0
+offset_right = 57.6333
+offset_bottom = 22.0
+scale = Vector2(0.0745026, 0.0711127)
+text = "Default"

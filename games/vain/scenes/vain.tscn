@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://03jevobm0xb0"]
+
+[ext_resource type="Script" path="res://games/vain/scenes/vain.gd" id="1_05xdf"]
+
+[node name="Vain" type="Node2D"]
+script = ExtResource("1_05xdf")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)

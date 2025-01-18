@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://be8o2oh52ckoi"
+path="res://.godot/imported/walkyandtalky.ogg-eaeec6268e8250140ba32d0a737a96bd.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/itch.io/Music by Ansimuz/walkyandtalky.ogg"
+dest_files=["res://.godot/imported/walkyandtalky.ogg-eaeec6268e8250140ba32d0a737a96bd.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

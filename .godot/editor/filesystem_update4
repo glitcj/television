@@ -1,0 +1,8 @@
+res://main.tscn
+res://scene.main.gd
+res://games/knews/main.tscn
+res://games/knews/nodes/monitor.gd
+res://games/knews/nodes/monitor.tscn
+res://source/messages/message_box.gd
+res://games/knews/scenes/scene.quiz.introduction.gd
+res://source/messages/message_box_settings.gd

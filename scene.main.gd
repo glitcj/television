@@ -1,10 +1,11 @@
 extends Scene
 
 # The option "Debug" redirects to CurrentlyDebugging
-var CurrentlyDebugging: String = "res://games/quiz/scenes/scene.quiz.title.gd"
+# var CurrentlyDebugging: String = "res://games/quiz/scenes/scene.quiz.title.gd"
+var CurrentlyDebugging: String = "res://games/knews/scenes/scene.quiz.introduction.gd"
 
-enum Tags {DebugGame, QuizShow, StandUp, Reference, MainSelectable}
-var event_queue_names: Dictionary = {Tags.DebugGame: "Debug", Tags.QuizShow: "Quiz Show", Tags.StandUp: "StandUp", Tags.Reference: "Reference"}
+enum Tags {DebugGame, Knews, QuizShow, StandUp, Reference, MainSelectable}
+var event_queue_names: Dictionary = {Tags.DebugGame: "Debug", Tags.Knews: "Knews.tv", Tags.QuizShow: "Quiz Show", Tags.StandUp: "StandUp", Tags.Reference: "Reference"}
 var event_queue_options: Dictionary = {Tags.DebugGame: CurrentlyDebugging, Tags.QuizShow: "res://games/quiz/scenes/scene.quiz.title.gd", Tags.StandUp: "res://games/standup/scenes/scene.standup.gd", Tags.Reference: "res://games/reference/scenes/scene.main.gd"}
 var scene_selectable_position = Constants.ScreenPositions.TopLeft
 

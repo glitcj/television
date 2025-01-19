@@ -1,0 +1,339 @@
+[gd_scene load_steps=19 format=3 uid="uid://cn0ftqew0kpjs"]
+
+[ext_resource type="Script" path="res://source/portrait/pallet.gd" id="1_sc430"]
+[ext_resource type="Texture2D" uid="uid://bxc8i0jcfrgbg" path="res://ignore/deprecated/sprites/1.webp" id="2_i2w4s"]
+[ext_resource type="Texture2D" uid="uid://dndd88bxt4gm6" path="res://ignore/deprecated/sprites/6.webp" id="3_ug51k"]
+[ext_resource type="Texture2D" uid="uid://da70sxanf3n6g" path="res://ignore/deprecated/sprites/ditto/2.png" id="4_4kwgk"]
+[ext_resource type="Texture2D" uid="uid://5htjfyqusjk6" path="res://ignore/deprecated/sprites/3.jpg" id="5_vwgmb"]
+[ext_resource type="AudioStream" uid="uid://b4s8hrh5evkqh" path="res://ignore/deprecated/sprites/jump_10.wav" id="6_vjc0e"]
+
+[sub_resource type="Animation" id="Animation_iwrx0"]
+resource_name = "Default"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pallet/GFX/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_i2w4s")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pallet/GFX/Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.5, 1.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pallet/GFX/Sprite2D:texture:load_path")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["res://.godot/imported/aes3.png-c77ac2fde26b2c90ec5e62683411fc9e.ctex"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Pallet/GFX/Sprite2D:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.349066]
+}
+
+[sub_resource type="Animation" id="Animation_iutts"]
+resource_name = "Enter"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pallet/GFX/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 150), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_oha0r"]
+resource_name = "Exclaim"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pallet/GFX/Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.95, 0.95), Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_vsgxw"]
+resource_name = "Exit"
+
+[sub_resource type="Animation" id="Animation_6x2lw"]
+resource_name = "Happy"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pallet/GFX/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_ug51k")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pallet/GFX/Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.2, 0.2)]
+}
+
+[sub_resource type="Animation" id="Animation_ufens"]
+resource_name = "Idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pallet/GFX/Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 0.615572, 2.2974),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.03, 1.03), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_2xldx"]
+resource_name = "Laugh"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pallet/GFX/Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1.41421, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.9, 0.8), Vector2(1.1, 1.2), Vector2(0.95, 0.8), Vector2(1.05, 1.2), Vector2(0.95, 0.8), Vector2(1.05, 1.2), Vector2(0.95, 0.8), Vector2(1.05, 1.2), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_l3k8k"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pallet/GFX/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_4kwgk")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pallet/GFX:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pallet/GFX/Sprite2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.001),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Pallet/GFX/Sprite2D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Pallet")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [150, 150],
+"method": &"absolute_rescale"
+}]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Pallet/GFX/Sprite2D:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 150)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Pallet/GFX:z_index")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+
+[sub_resource type="Animation" id="Animation_6b3jj"]
+resource_name = "Sad"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pallet/GFX/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_vwgmb")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pallet/GFX/Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+
+[sub_resource type="Animation" id="Animation_0jjex"]
+resource_name = "SlideIn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pallet/GFX:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-400, 60), Vector2(-170, 60)]
+}
+
+[sub_resource type="Animation" id="Animation_j3vvg"]
+resource_name = "SlideOut"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pallet/GFX:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-170, 60), Vector2(-400, 60)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_07quv"]
+_data = {
+"Default": SubResource("Animation_iwrx0"),
+"Enter": SubResource("Animation_iutts"),
+"Exclaim": SubResource("Animation_oha0r"),
+"Exit": SubResource("Animation_vsgxw"),
+"Happy": SubResource("Animation_6x2lw"),
+"Idle": SubResource("Animation_ufens"),
+"Laugh": SubResource("Animation_2xldx"),
+"RESET": SubResource("Animation_l3k8k"),
+"Sad": SubResource("Animation_6b3jj"),
+"SlideIn": SubResource("Animation_0jjex"),
+"SlideOut": SubResource("Animation_j3vvg")
+}
+
+[node name="Pallet" type="Node2D"]
+script = ExtResource("1_sc430")
+
+[node name="AnimationPlayerA" type="AnimationPlayer" parent="."]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_07quv")
+}
+autoplay = "RESET"
+
+[node name="GFX" type="Node2D" parent="."]
+z_index = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="GFX"]
+z_as_relative = false
+texture_filter = 1
+position = Vector2(0, 150)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_i2w4s")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_vjc0e")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)

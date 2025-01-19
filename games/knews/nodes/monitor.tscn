@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://c87ohq75684in"]
+
+[ext_resource type="Script" path="res://games/quiz/nodes/monitor.gd" id="1_amny4"]
+[ext_resource type="PackedScene" uid="uid://de4hjdhgc21p4" path="res://source/messages/message_box.tscn" id="2_66fey"]
+
+[node name="Monitor" type="Node2D"]
+script = ExtResource("1_amny4")
+
+[node name="MessageBox" parent="." instance=ExtResource("2_66fey")]

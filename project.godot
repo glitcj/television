@@ -34,6 +34,7 @@ window/stretch/mode="canvas_items"
 [file_customization]
 
 folder_colors={
+"res://games/knews/": "blue",
 "res://games/quiz/": "orange",
 "res://games/reference/": "yellow",
 "res://games/standup/": "green",

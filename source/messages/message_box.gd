@@ -10,12 +10,24 @@ signal ready_to_allow_message_clear_signal
 @onready var message = get_node("GFX/MessageNode/Message")
 @onready var character_timer = get_node("CharacterTimer")
 
+# TODO: Characters are drawn as a text object for each
+# character, positions determines by message parameters
+# and index of character.
+class CharacterBlueprint:
+	enum CharacterType {image, normal}
+	var colour = "white"
+	var image_to_show = null
+
+# TODO: Change queue to message_queue
 # Settables
 var queue = []
+var character_queue: Array = []
+
+
 
 # Add _ as a prefix to all non-settables
 var allow_message_interruption := false
-var last_shown_message = null
+# var last_shown_message = null
 var characters_shown_counter = 0
 var character_pause_buffer = 5
 var queue_was_filled = false
@@ -101,6 +113,7 @@ func show_next_message():
 	if messages_left_in_queue():
 		message_to_display = queue.pop_front()
 		characters_shown_counter = 0
+		_parse_message_commands()
 	else:
 		print("No messages found in queue.")
 		# TODO: Replace with typed null string value.
@@ -146,6 +159,60 @@ func _process_autoplay_timer():
 		# wait_timer.queue_free()
 		if autoplay_ready_to_action:
 			show_next_message()
-	
-	
-	# _clean_up()
+
+# Change this to uuided portrait, uuid is added to Variables	
+func _add_image_to_message_box(image_path_: String):
+	# Check if the image path is valid
+	if ResourceLoader.exists(image_path_):
+		
+		print("45454545")
+		# Create a new Sprite2D node
+		var sprite = Sprite2D.new()
+		# Load the texture and set it to the sprite
+		var texture = load(image_path_)
+		sprite.texture = texture
+		# Add the sprite as a child to the current node
+		add_child(sprite)
+
+		sprite.position = Vector2(50, 50) # Vector2(randf() * 100, randf() * 100)
+		# sprite.transform()
+		
+		return sprite
+	else:
+		print("Failed to find MessageBox image asset.")
+		return null
+
+func _parse_message_commands(): # message_: String):
+	var processed_message = []
+	for word in message_to_display.split(" "):
+		if "#image" in word:
+			var start_index = word.find("[")
+			var end_index = word.find("]")
+			if start_index != -1 and end_index != -1:
+				var image_path = word.substr(start_index + 1, end_index - start_index - 1)
+				_add_image_to_message_box(image_path)
+		else:
+			processed_message.append(word)
+	message_to_display = " ".join(processed_message)
+
+# TODO: Change the following to update character queue
+func _parse_popped_message(): # message_: String):
+	var processed_message = []
+	var character_to_add: CharacterBlueprint
+	for word in message_to_display.split(" "):
+		if "#image" in word:
+			var start_index = word.find("[")
+			var end_index = word.find("]")
+			if start_index != -1 and end_index != -1:
+				var image_path = word.substr(start_index + 1, end_index - start_index - 1)
+				# _add_image_to_message_box(image_path)
+				character_to_add = CharacterBlueprint.new()
+				character_to_add.image_to_show = image_path
+				character_to_add.type = CharacterBlueprint.CharacterType.image
+				character_queue.append(character_to_add)
+		else:
+			for char in word:
+				character_to_add = CharacterBlueprint.new()
+				character_to_add.type = CharacterBlueprint.CharacterType.normal
+				character_queue.append(character_to_add)
+	message_to_display = " ".join(processed_message)

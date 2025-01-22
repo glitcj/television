@@ -2,7 +2,7 @@ extends Scene
 
 # The option "Debug" redirects to CurrentlyDebugging
 # var CurrentlyDebugging: String = "res://games/quiz/scenes/scene.quiz.title.gd"
-var CurrentlyDebugging: String = "res://games/knews/scenes/scene.quiz.introduction.gd"
+var CurrentlyDebugging: String = "res://games/knews/scenes/scene.knews.introduction.gd"
 
 enum Tags {DebugGame, Knews, QuizShow, StandUp, Reference, MainSelectable}
 var event_queue_names: Dictionary = {Tags.DebugGame: "Debug", Tags.Knews: "Knews.tv", Tags.QuizShow: "Quiz Show", Tags.StandUp: "StandUp", Tags.Reference: "Reference"}
@@ -15,7 +15,7 @@ func initialise_global_queue():
 	
 	var message_per_option = []
 	for m in event_queue_names.values():
-		message_per_option.append(["Moving to:\n%s" % m])
+		message_per_option.append(["Moving to:{newline}%s" % m])
 	var packed_message = Variables.ArrayRetriever.new(message_per_option, "last_selected_selectable_index")
 	Queue.queue.append(Event.unpack().initialise([packed_message], Event.message_box()))
 	
